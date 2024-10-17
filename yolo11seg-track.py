@@ -17,11 +17,11 @@ def send_email(receiver_email, frame, max_retries=3, delay=5):
             # Set up the SMTP server
             server = smtplib.SMTP('smtp.gmail.com', 587)  # Update if using a different service
             server.starttls()  # Enable security
-            server.login('freedomtech85@gmail.com', 'ozwt mqfz zxja ebwh')  # Update with your credentials(sender_mail,password) 
+            server.login('', '')  # Update with your credentials(sender_mail,password) 
 
             # Create the email
             msg = MIMEMultipart()
-            msg['From'] = 'freedomtech85@gmail.com'  # Update with your email
+            msg['From'] = ''  # Update with your email
             msg['To'] = receiver_email
             msg['Subject'] = 'Fire Detected'
 
@@ -115,7 +115,7 @@ while True:
 
                     if 'fire' in c:
                         # Create a thread to send an email with the current frame
-                        receiver_email = "truckersfan66@gmail.com"  # Update with the actual receiver email
+                        receiver_email = ""  # Update with the actual receiver email
                         email_thread = threading.Thread(target=send_email, args=(receiver_email, frame.copy()))  # Use frame.copy() to avoid threading issues
                         email_threads.append(email_thread)  # Track the thread
                         email_thread.start()  # Start the email thread
